@@ -1,0 +1,4 @@
+package Weapons;
+
+interface IWeaponBehavior {
+}
