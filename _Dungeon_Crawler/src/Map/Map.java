@@ -1,7 +1,7 @@
-import java.lang.reflect.Array;
+package Map;
 
 public class Map {
-
+    private String imageName = "", fileType = ".png";
     private String[][][] map={  /*0*/   {{null},{null},{null},{null},{null},{null},{"wall","6_0_1","wall","6_0_3"},{"wall","7_0_1","wand","7_0_3"},{"wall","8_0_1","wall","8_0_3"},{"wall","9_0_1","wall","9_0_3"},{"wall","10_0_1","wall","10_0_3"},{"11_0_0","corner_right","wall","11_0_3"},{null},{null},{null},{null},{null},{null},{null}},
                                 /*1*/   {{null},{null},{null},{null},{null},{null},{null},{null},{null},{null},{null},{"11_1_0","wall","11_1_2","wall"},{null},{null},{null},{null},{null},{null},{null}},
                                 /*2*/   {{"0_2_0","0_2_1","corner_right","corner_left"},{"1_2_0","1_2_1","wall","1_2_3"},{"2_2_0","corner_right","corner_left","2_2_3"},{null},{null},{null},{null},{null},{null},{null},{null},{"11_2_0","wall","11_2_2","wall"},{null},{null},{null},{null},{null},{null},{null}},
@@ -17,12 +17,19 @@ public class Map {
                                 };
 
     public String getImageName(int x, int y, int viewDirection){
-        String imageName = "", fileType = ".png";
+
+        //mapSave(map);
         imageName = map[y][x][viewDirection];
+
         return imageName + fileType;
     }
 
-    public void setMap(String[][][] mapArray){
-        map = mapArray;
+    public boolean checkWall(int x, int y, int viewDirection){
+        imageName = map[y][x][viewDirection];
+        if(imageName == null)
+            return true;
+        else
+            return false;
     }
+
 }
