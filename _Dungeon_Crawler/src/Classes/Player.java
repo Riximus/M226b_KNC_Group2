@@ -22,7 +22,7 @@ abstract class Player {
     }
 
     /* Commands */
-    public setWeapon(IWeaponBehavior weaponBeavior){}
+    public void setWeapon(IWeaponBehavior weaponBehavior){}
 
     public void fight(){} // maybe in enemy because they start the fights?
 

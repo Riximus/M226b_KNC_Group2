@@ -1,4 +1,4 @@
 package Weapons;
 
-interface IWeaponBehavior {
+public interface IWeaponBehavior {
 }
