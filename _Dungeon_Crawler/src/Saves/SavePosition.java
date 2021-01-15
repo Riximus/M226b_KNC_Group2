@@ -5,7 +5,7 @@ import Map.*;
 public class SavePosition {
     Map map = new Map();
 
-    private int saveX, saveY, saveViewDirection;
+    private int saveX, saveY, saveViewDirection; // maybe make it static?
 
     public SavePosition(int x, int y, int viewDirection){
         this.saveX = x;
