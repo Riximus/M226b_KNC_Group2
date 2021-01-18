@@ -3,7 +3,7 @@ import Saves.SavePosition;
 
 public class Movement {
     private static int x = 6, y = 0, viewDirection = 1; // static -> value still increases on method call
-    String imageName = "";
+    private String imageName = "";
     Map map = new Map();
     SavePosition savePosition = new SavePosition(x,y,viewDirection);
 
@@ -138,6 +138,5 @@ public class Movement {
             viewDirection = savePosition.getSaveViewDirection();
         }
         return imageName;
-        //map.Position();
     }
 }

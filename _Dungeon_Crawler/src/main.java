@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class main {
 
     public static void main(String[] args) {
+        /* Logic test of Map Movement Save
         do {
             Movement movement = new Movement();
             Scanner scan = new Scanner(System.in);
@@ -17,6 +18,6 @@ public class main {
             System.out.println(movement.move(input));
 
             System.out.println("Walking end\n");
-        }while(true);
+        }while(true);*/
     }
 }

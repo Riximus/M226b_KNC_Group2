@@ -37,9 +37,9 @@ public class SavePosition {
         this.saveViewDirection = saveViewDirection;
     }
 
-    public void saveAll(int x, int y, int viewDirection){
-        this.saveX = x;
-        this.saveY = y;
-        this.saveViewDirection = viewDirection;
+    public void saveAll(int saveX, int saveY, int saveViewDirection){
+        this.saveX = saveX;
+        this.saveY = saveY;
+        this.saveViewDirection = saveViewDirection;
     }
 }
