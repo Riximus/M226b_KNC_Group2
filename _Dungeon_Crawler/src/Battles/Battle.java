@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 package Battles;
 
 import Classes.Fighter;
@@ -26,3 +27,10 @@ public class Battle {
         }
     }
 }
+=======
+package Battles;
+import Classes.*;
+
+public class Battle {
+}
+>>>>>>> Stashed changes
