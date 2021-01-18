@@ -3,7 +3,7 @@ public class Story {
 
     public int getChoice(){
 
-        return ;
+        return 0;
     }
 
     public void setChoice(int userChoice){

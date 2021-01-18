@@ -24,7 +24,7 @@ abstract class Player {
     /* Commands */
     public void setWeapon(IWeaponBehavior weaponBehavior){}
 
-    public void fight(){} // maybe in enemy because they start the fights?
-
-    public void walk(){} // maybe into a seperate class?
+    public int fight(){
+        return 10;
+    } // maybe in enemy because they start the fights?
 }
