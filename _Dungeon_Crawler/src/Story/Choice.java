@@ -1,7 +1,7 @@
 package Story;
 
 public class Choice {
-    int choice = 0;
+    private static int choice = 0;
 
     public int getChoice() {
         return choice;
