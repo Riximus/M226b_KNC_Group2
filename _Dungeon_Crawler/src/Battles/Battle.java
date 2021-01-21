@@ -7,22 +7,28 @@ public class Battle {
     public boolean isPlayerDead = false;
 
     public void startBattle(Fighter player, Enemy enemy) {
-        while (player.getHealth() >= 0 && enemy.getHealth() >= 0) {
+        while (player.getHealth() - enemy.getAttackDamage() >= 0 && enemy.getHealth() - player.getAttackDamage() >= 0) {
             player.setHealth(player.getHealth() - enemy.getAttackDamage());
-            System.out.println("AHH! Ich wurde getroffen! Ich habe " + enemy.getAttackDamage() + " Leben verloren!");
+            System.out.println("AHH! Ich wurde getroffen! Ich habe noch" + player.getHealth() + " Leben!");
 
-            // Wait for any player input to continue
+            if (player.getHealth() - enemy.getAttackDamage() <= 0) {
+                isPlayerDead = true;
+                System.out.println("Du bist gestorben!");
+                break;
+            }
 
-            enemy.setHealth(enemy.getHealth() - player.fight());
-            System.out.println("Du hasst ihm " + player.fight() + " Schaden gemacht!");
-        }
+            //insert button listener here
 
-        if (player.getHealth() >= 0) {
-            isPlayerDead = true;
-        }
+            enemy.setHealth(enemy.getHealth() - player.getAttackDamage());
+            System.out.println("Der Gegner hat noch " + enemy.getHealth() + " Leben!");
 
-        if (enemy.getHealth() >= 0) {
-            System.out.println("Du hast deinen Gegner besiegt!");
+            if (enemy.getHealth() - player.getAttackDamage() <= 0) {
+                System.out.println("Du hast deinen Gegner besiegt!");
+                break;
+            }
+
+            //insert button listener here
+
         }
     }
 }

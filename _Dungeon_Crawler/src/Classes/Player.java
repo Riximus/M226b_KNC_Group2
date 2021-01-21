@@ -1,4 +1,5 @@
 package Classes;
+
 import Weapons.*;
 
 abstract class Player {
@@ -6,10 +7,11 @@ abstract class Player {
     private String characterName = "";
 
     /* Health */
-    public int getHealth(){
+    public int getHealth() {
         return health;
     }
-    public void setHealth(int newHealth){
+
+    public void setHealth(int newHealth) {
         health = newHealth;
     }
 
@@ -17,14 +19,13 @@ abstract class Player {
     public String getCharacterName() {
         return characterName;
     }
-    public void setCharacterName(String newCharacterName){
+
+    public void setCharacterName(String newCharacterName) {
         characterName = newCharacterName;
     }
 
     /* Commands */
-    public void setWeapon(IWeaponBehavior weaponBehavior){}
+    public void setWeapon(IWeaponBehavior weaponBehavior) {
+    }
 
-    public int fight(){
-        return 10;
-    } // maybe in enemy because they start the fights?
 }

@@ -1,3 +1,6 @@
+import Battles.Battle;
+import Battles.Enemy;
+import Classes.Fighter;
 import Map.Movement;
 
 import java.util.Scanner;
@@ -19,5 +22,17 @@ public class main {
 
             System.out.println("Walking end\n");
         }while(true);*/
+
+
+        /*
+        Fighter fighter = new Fighter();
+        Enemy enemy = new Enemy();
+        Battle battle = new Battle();
+
+        enemy.setHealth(100);
+        enemy.setAttackDamage(9);
+        fighter.setHealth(100);
+
+        battle.startBattle(fighter, enemy);*/
     }
 }
