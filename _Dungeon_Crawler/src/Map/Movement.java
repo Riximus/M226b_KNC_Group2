@@ -1,4 +1,5 @@
 package Map;
+import Classes.*;
 import Saves.SavePosition;
 
 public class Movement {
@@ -8,7 +9,7 @@ public class Movement {
     SavePosition savePosition = new SavePosition(x,y,viewDirection);
 
     // method: move
-    public String move(char direction){
+    public String move(char direction, Fighter player){
         //savePosition.setSaveX(x);
         //savePosition.setSaveY(y);
         //savePosition.setSaveViewDirection(viewDirection);
@@ -109,6 +110,9 @@ public class Movement {
         * else the previous position will get loaded */
         try {
             if (map.checkWall(x, y, viewDirection) == false) {
+
+                map.battleSpawn(x,y,player);
+
                 imageName = map.getImageName(x, y, viewDirection);
                 savePosition.saveAll(x, y, viewDirection);
 

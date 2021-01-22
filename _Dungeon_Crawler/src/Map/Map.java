@@ -1,4 +1,7 @@
 package Map;
+import Battles.*;
+import Classes.Fighter;
+import Story.Riddle;
 
 public class Map {
     private String imageName = "", fileType = ".png";
@@ -15,6 +18,8 @@ public class Map {
                                 /*10*/  {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"16_10_0","16_10_1","16_10_2","wall"},{"17_10_0","17_10_1","17_10_2","17_10_3"},{"18_10_0","wall","18_10_2","18_10_3"}},
                                 /*11*/  {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"16_11_0","16_11_1","16_11_2","wall"},{"17_11_0","17_11_1","17_11_2","17_11_3"},{"18_11_0","wall","18_11_2","18_11_3"}}
                                 };
+    Battle battle = new Battle();
+    Riddle riddle = new Riddle();
 
     public String getImageName(int x, int y, int viewDirection){
         imageName = map[y][x][viewDirection];
@@ -30,5 +35,43 @@ public class Map {
         }
         else
             return false;
+    }
+
+    public void checkPosition(int x, int y, int viewDirection, Fighter player){
+        battleSpawn(x, y, player);
+        riddle(x, y, viewDirection);
+    }
+
+    public void battleSpawn(int x, int y, Fighter player){
+        if(x == 16 && y == 9){
+            Enemy enemy1 = new Enemy();
+            enemy1.setHealth(100);
+            enemy1.setAttackDamage(9);
+
+            imageName = enemy1.getEnemy(0);
+            // show imageName on GUI
+            System.out.println(imageName);
+            battle.startBattle(player, enemy1);
+        }
+        if(x == 2 && y == 4){
+            Enemy boss = new Enemy();
+            boss.setHealth(100);
+            boss.setAttackDamage(9);
+
+            imageName = boss.getEnemy(1);
+            System.out.println(imageName);
+            battle.startBattle(player, boss);
+        }
+    }
+
+    public void riddle(int x, int y, int viewDirection){
+
+        if(x == 4 && y == 4 && viewDirection == 3){
+            riddle.bossDoor();
+        }else if(x == 5 && y == 5 && viewDirection == 0){
+            riddle.statue();
+        }else if((x==16 || x==17 || x==18) && y==11 && viewDirection == 0){
+            riddle.buttons(x);
+        }
     }
 }

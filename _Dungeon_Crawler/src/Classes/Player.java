@@ -3,8 +3,8 @@ package Classes;
 import Weapons.*;
 
 abstract class Player {
-    private int health = 0;
-    private String characterName = "";
+    private static int health = 0;
+    private static String characterName = "";
 
     /* Health */
     public int getHealth() {

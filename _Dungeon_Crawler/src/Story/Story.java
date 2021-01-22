@@ -2,6 +2,7 @@ package Story;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import Classes.*;
 
 /****
  *
@@ -14,6 +15,7 @@ import java.util.Scanner;
 public class Story {
     private static String playerName = "Hans De Fault", oldMan = "Ignis";
     Scanner scan = new Scanner(System.in);
+    Fighter fighter = new Fighter();
 
     public void script(boolean ending) {
         int choice = -1;
@@ -141,6 +143,7 @@ public class Story {
                 System.out.println(oldMan+" \"Ich hab das hier von einem Fremden abgekauft der seit seine Familie das Kampfesleben an den Nagel gehängt haben es nicht mehr zu gebrauchen wusste.\"");
                 System.out.println(oldMan+" \"Wähle eines aus dass dir den Weg erleichtern sollte.\"");
                 System.out.println(playerName+" nimmt das Schwert und Schild.");
+                fighter.setCharacterName(playerName); // Fighter Klasse erhält Spielername
                 System.out.println("Du hälst das Untarm Lange Schwert mit der rechten Hand und machst dich langsam vertraut mit dem Gewicht.");
                 System.out.println("Das runde Schild besitzt eine bequeme Schlaufe und lässt sich schnell und leicht bewegen.");
                 System.out.println(playerName+" trinkt das Getränk aus während Ignis erklärt wo die Höhle von seiner Hütte aus steht.");
