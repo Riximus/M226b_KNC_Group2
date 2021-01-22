@@ -11,7 +11,4 @@ public class SwordBehavior implements IWeaponBehavior {
         return attackDamage;
     }
 
-    public void setAttackDamage(int attackDamage) {
-        this.attackDamage = attackDamage;
-    }
 }
