@@ -4,8 +4,8 @@ import Classes.Fighter;
 import Story.Riddle;
 
 public class Map {
-    private String imageName = "", fileType = ".png";
-    private String[][][] map={  /*0*/   {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"wall","6_0_1","wall","6_0_3"},{"wall","7_0_1","wall","7_0_3"},{"wall","8_0_1","wall","8_0_3"},{"wall","9_0_1","wall","9_0_3"},{"wall","10_0_1","wall","10_0_3"},{"11_0_0","corner_right","wall","11_0_3"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
+    private static String imageName = "", fileType = ".png";
+    private static String[][][] map={  /*0*/   {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"wall","6_0_1","wall","6_0_3"},{"wall","7_0_1","wall","7_0_3"},{"wall","8_0_1","wall","8_0_3"},{"wall","9_0_1","wall","9_0_3"},{"wall","10_0_1","wall","10_0_3"},{"11_0_0","corner_right","wall","11_0_3"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
                                 /*1*/   {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"11_1_0","wall","11_1_2","wall"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
                                 /*2*/   {{"0_2_0","0_2_1","corner_right","corner_left"},{"1_2_0","1_2_1","wall","1_2_3"},{"2_2_0","corner_right","corner_left","2_2_3"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"11_2_0","wall","11_2_2","wall"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
                                 /*3*/   {{"0_3_0","0_3_1","0_3_2","wall"},{"1_3_0","1_3_1","1_3_2","1_3_3"},{"2_3_0","2_3_1","2_3_2","2_3_3"},{null,null,null,null},{"4_3_0","4_3_1","corner_right","4_3_3"},{"5_3_0","5_3_1","wall","5_3_3"},{"6_3_0","6_3_1","wall","6_3_3"},{"7_3_0","corner_right","corner_left","7_3_3"},{null,null,null,null},{"9_3_0","9_3_1","corner_right","corner_left"},{"10_3_0","10_3_1","wall","10_3_3"},{"11_3_0","wall","11_3_2","11_3_3"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
@@ -49,7 +49,7 @@ public class Map {
             enemy1.setAttackDamage(9);
 
             imageName = enemy1.getEnemy(0);
-            // show imageName on GUI
+            // TODO Hier Gegner Bild an GUI senden
             System.out.println(imageName);
             battle.startBattle(player, enemy1);
         }
@@ -59,6 +59,7 @@ public class Map {
             boss.setAttackDamage(9);
 
             imageName = boss.getEnemy(1);
+            // TODO Hier Boss Bild an GUI senden
             System.out.println(imageName);
             battle.startBattle(player, boss);
         }
@@ -73,5 +74,29 @@ public class Map {
         }else if((x==16 || x==17 || x==18) && y==11 && viewDirection == 0){
             riddle.buttons(x);
         }
+    }
+
+    public void swapMapImageRiddle(){
+        String doorOpen = "_open";
+        // 4_3_3, 4_4_3, 4_5_3, 5_3_3, 5_4_3, 5_5_3, 6_3_3, 6_4_3, 6_5_3, 6_6_3
+        // 7_3_3, 7_4_3, 7_5_3, 7_6_3, 8_4_3, 9_4_3, 10_4_3, 11_4_3 + _open
+        map[4][3][3] = map[4][3][3] + doorOpen;
+        map[4][4][3] = map[4][4][3] + doorOpen;
+        map[4][5][3] = map[4][5][3] + doorOpen;
+        map[5][3][3] = map[5][3][3] + doorOpen;
+        map[5][4][3] = map[5][4][3] + doorOpen;
+        map[5][5][3] = map[5][5][3] + doorOpen;
+        map[6][3][3] = map[6][3][3] + doorOpen;
+        map[6][4][3] = map[6][4][3] + doorOpen;
+        map[6][5][3] = map[6][5][3] + doorOpen;
+        map[6][6][3] = map[6][6][3] + doorOpen;
+        map[7][3][3] = map[7][3][3] + doorOpen;
+        map[7][4][3] = map[7][4][3] + doorOpen;
+        map[7][5][3] = map[7][5][3] + doorOpen;
+        map[7][6][3] = map[7][6][3] + doorOpen;
+        map[8][4][3] = map[8][4][3] + doorOpen;
+        map[9][4][3] = map[9][4][3] + doorOpen;
+        map[10][4][3] = map[10][4][3] + doorOpen;
+        map[11][4][3] = map[11][4][3] + doorOpen;
     }
 }

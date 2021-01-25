@@ -111,7 +111,8 @@ public class Movement {
         try {
             if (map.checkWall(x, y, viewDirection) == false) {
 
-                map.battleSpawn(x,y,player);
+                // Kontrolliert die Position ob der Spieler gegen einen Gegner kämpfen wird oder vor Rätsel Bereiche steht
+                map.checkPosition(x,y,viewDirection,player);
 
                 imageName = map.getImageName(x, y, viewDirection);
                 savePosition.saveAll(x, y, viewDirection);
@@ -141,6 +142,7 @@ public class Movement {
             y = savePosition.getSaveY();
             viewDirection = savePosition.getSaveViewDirection();
         }
+        // TODO Hier Ego Perspektive Bild an GUI senden
         return imageName;
     }
 }
