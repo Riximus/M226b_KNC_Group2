@@ -1,6 +1,8 @@
 import Battles.Battle;
 import Battles.Enemy;
 import Classes.Fighter;
+import GUI.ImagePanel;
+import GUI.MainScreen;
 import Map.Movement;
 
 import java.util.Scanner;
@@ -34,5 +36,12 @@ public class main {
         fighter.setHealth(100);
 
         battle.startBattle(fighter, enemy);*/
+
+
+        MainScreen mainScreen = new MainScreen();
+        ImagePanel imagePanel = new ImagePanel();
+
+        mainScreen.setjPanelPicture(imagePanel.createImageLabel("wall.png"));
+        mainScreen.run();
     }
 }
