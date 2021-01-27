@@ -41,6 +41,7 @@ public class main {
         MainScreen mainScreen = new MainScreen();
         ImagePanel imagePanel = new ImagePanel();
 
+
         mainScreen.setjPanelPicture(imagePanel.createImageLabel("wall.png"));
         mainScreen.run();
     }

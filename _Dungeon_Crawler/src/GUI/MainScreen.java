@@ -21,6 +21,7 @@ public class MainScreen {
     private JButton aButton;
     private JScrollBar scrollBar;
     private JPanel mainPanel;
+    private JPanel statsPanel;
 
     public MainScreen() {
         wButton.addActionListener(new ActionListener() {
@@ -50,7 +51,10 @@ public class MainScreen {
     }
 
     public void setjPanelPicture(JPanel jPanelPicture) {
-        this.jPanelPicture = jPanelPicture;
+        this.mainPanel = jPanelPicture;
+        jFrame.invalidate();
+        jFrame.validate();
+        jFrame.repaint();
     }
 
     public void run() {
