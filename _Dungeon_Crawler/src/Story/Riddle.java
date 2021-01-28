@@ -10,7 +10,6 @@ public class Riddle {
     private static boolean choiceDone = false, buttonPressed = false, riddleButtonPressed = false;
     Scanner scan = new Scanner(System.in);
     Fighter player = new Fighter();
-    Map map = new Map();
 
     public void bossDoor(){
         System.out.println("Die Tür wirkt warm und einladend.");
@@ -38,7 +37,7 @@ public class Riddle {
         System.out.println("Eine grosse Statue mit aufwendigen Verzierungen.");
     }
 
-    public void buttons(int x){
+    public boolean buttons(int x){
 
         if(riddleButtonPressed) {
             if (x == 16) {
@@ -65,12 +64,11 @@ public class Riddle {
                     System.out.println("Mit ein bisschen mehr Kraft bewegt sich der Schalter in seine Position.");
                     System.out.println("Man hört von weiter Ferne");
                     riddleButtonPressed = true;
-                    map.swapMapImageRiddle();
-
+                    return true;
                 }
             }
         }else System.out.println("Der Schalter bleibt unverändert beim drücken.");
-
+        return false;
     }
 
     // vv Methoden um Wiederholungen zu vermeiden vv

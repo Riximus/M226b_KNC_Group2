@@ -4,6 +4,7 @@ import Classes.Fighter;
 import Story.Riddle;
 
 public class Map {
+    private static boolean riddleSolved = false;
     private static String imageName = "", fileType = ".png";
     private static String[][][] map={  /*0*/   {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"wall","6_0_1","wall","6_0_3"},{"wall","7_0_1","wall","7_0_3"},{"wall","8_0_1","wall","8_0_3"},{"wall","9_0_1","wall","9_0_3"},{"wall","10_0_1","wall","10_0_3"},{"11_0_0","corner_right","wall","11_0_3"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
                                 /*1*/   {{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{"11_1_0","wall","11_1_2","wall"},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null},{null,null,null,null}},
@@ -72,7 +73,10 @@ public class Map {
         }else if(x == 5 && y == 5 && viewDirection == 0){
             riddle.statue();
         }else if((x==16 || x==17 || x==18) && y==11 && viewDirection == 0){
-            riddle.buttons(x);
+            riddleSolved = riddle.buttons(x);
+            if(riddleSolved){
+                swapMapImageRiddle();
+            }
         }
     }
 
