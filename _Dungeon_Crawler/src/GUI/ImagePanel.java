@@ -14,9 +14,9 @@ import java.io.File;
  */
 public class ImagePanel {
 
-    public JPanel createImageLabel(String imagename) {
+    public JPanel createImageLabel(String imageName) {
         try {
-            BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\silas\\OneDrive\\Dokumente\\Lehre\\Berufsschule\\Module\\M226b\\KNC\\git repositori\\M226b_KNC_Group2\\Map\\pictures\\" + imagename));
+            BufferedImage myPicture = ImageIO.read(new File("src\\pictures\\" + imageName));
             JLabel label = new JLabel(new ImageIcon(myPicture));
             JPanel panel = new JPanel();
             panel.add(label);
