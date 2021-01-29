@@ -3,6 +3,7 @@ package Story;
 import java.util.Arrays;
 import java.util.Scanner;
 import Classes.*;
+import GUI.TextAreaPrintStream;
 
 /****
  *
@@ -16,6 +17,15 @@ public class Story {
     private static String playerName = "Hans De Fault", oldMan = "Ignis";
     Scanner scan = new Scanner(System.in);
     Fighter fighter = new Fighter();
+    TextAreaPrintStream textAreaPrintStream;
+
+    public Story(){
+
+    }
+
+    public Story(TextAreaPrintStream textAreaPrintStream) {
+        this.textAreaPrintStream = textAreaPrintStream;
+    }
 
     public void script(boolean ending) {
         int choice = -1;
@@ -25,6 +35,7 @@ public class Story {
         if (ending == false) {
 
             /* Name des Spielers setzen */
+            textAreaPrintStream.printText("Please set your name:");
             System.out.println("Please set your name:");
             playerName = scan.next();
 

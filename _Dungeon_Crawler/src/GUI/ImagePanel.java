@@ -13,7 +13,7 @@ import java.io.File;
  * Erstellungsdatum: 25.01.2021
  */
 public class ImagePanel {
-
+    
     public JPanel createImageLabel(String imageName) {
         try {
             BufferedImage myPicture = ImageIO.read(new File("src\\pictures\\" + imageName));

@@ -1,5 +1,6 @@
 package Map;
 import Classes.*;
+import GUI.TextAreaPrintStream;
 import Saves.SavePosition;
 
 public class Movement {

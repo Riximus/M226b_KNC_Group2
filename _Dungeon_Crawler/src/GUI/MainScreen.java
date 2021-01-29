@@ -2,6 +2,7 @@ package GUI;
 
 import Classes.Fighter;
 import Map.Movement;
+import Story.Story;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +18,6 @@ import java.awt.event.ActionListener;
 public class MainScreen {
     private JFrame jFrame = new JFrame();
     private JPanel jPanelPicture;
-    private JTextArea textAreaOutput;
     private JButton eButton;
     private JButton wButton;
     private JButton dButton;
@@ -27,10 +27,14 @@ public class MainScreen {
     private JPanel statsPanel;
     private JLabel hpLabel;
     private JLabel attackDamageLabel;
+    private JTextPane textPane;
+    private JTextField textField;
 
     private Movement movement = new Movement();
     private Fighter fighter = new Fighter();
     private ImagePanel imagePanel = new ImagePanel();
+    private TextAreaPrintStream textAreaPrintStream = new TextAreaPrintStream();
+    private Story story = new Story(textAreaPrintStream);
 
     public MainScreen() {
         wButton.addActionListener(new ActionListener() {
@@ -76,14 +80,23 @@ public class MainScreen {
         statsPanel.setBackground(Color.black);
         hpLabel.setText("HP = " + fighter.getHealth());
         attackDamageLabel.setText("Attack Damage = " + fighter.getAttackDamage());
+        textPane.setEditable(false);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);
+        process();
+    }
+
+    public void process() {
+        story.script(false);
     }
 
     private void createUIComponents() {
         ImagePanel imagePanel = new ImagePanel();
         jPanelPicture = imagePanel.createImageLabel("6_0_1.png");
+
+        TextAreaPrintStream textAreaPrintStream = new TextAreaPrintStream();
+        textPane = textAreaPrintStream.getTextPane();
         // TODO: place custom component creation code here
     }
 }

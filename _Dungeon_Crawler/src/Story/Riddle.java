@@ -1,6 +1,7 @@
 package Story;
 
 import Classes.Fighter;
+import GUI.TextAreaPrintStream;
 import Map.Map;
 
 import java.util.Scanner;
@@ -10,8 +11,11 @@ public class Riddle {
     private static boolean choiceDone = false, buttonPressed = false, riddleButtonPressed = false;
     Scanner scan = new Scanner(System.in);
     Fighter player = new Fighter();
+    TextAreaPrintStream textAreaPrintStream = new TextAreaPrintStream();
 
     public void bossDoor(){
+        textAreaPrintStream.printText("Die Tür wirkt warm und einladend.");
+        textAreaPrintStream.printText("Es fällt auf dass etwas schwarzes an der Tür abgebildet ist.");
         System.out.println("Die Tür wirkt warm und einladend.");
         System.out.println("Es fällt auf dass etwas schwarzes an der Tür abgebildet ist.");
         if(choiceDone == false) {

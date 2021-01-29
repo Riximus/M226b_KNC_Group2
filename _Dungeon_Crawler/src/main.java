@@ -3,6 +3,7 @@ import Battles.Enemy;
 import Classes.Fighter;
 import GUI.ImagePanel;
 import GUI.MainScreen;
+import GUI.TextAreaPrintStream;
 import Map.Movement;
 
 import java.util.Scanner;
